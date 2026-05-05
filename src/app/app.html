@@ -1,4 +1,4 @@
-<div class="shell" [class.public-shell]="isPublicRoute() || !auth.currentUser()">
+<div class="shell" [class.public-shell]="isPublicRoute() || !auth.currentUser()" [class.theme-light]="theme() === 'light'" [class.theme-dark]="theme() === 'dark'">
   @if (auth.currentUser() && !isPublicRoute()) {
     <aside class="sidebar">
       <div class="brand">
@@ -14,8 +14,17 @@
         <a routerLink="/analytics" routerLinkActive="active">Analitica</a>
         <a routerLink="/predictions" routerLinkActive="active">Predicciones</a>
       </nav>
-      <button type="button" class="ghost" (click)="auth.logout()">Cerrar sesion</button>
+      <div class="sidebar-actions">
+        <button type="button" class="theme-toggle" (click)="toggleTheme()">
+          {{ theme() === 'light' ? 'Tema oscuro' : 'Tema claro' }}
+        </button>
+        <button type="button" class="ghost" (click)="auth.logout()">Cerrar sesion</button>
+      </div>
     </aside>
+  } @else {
+    <button type="button" class="public-theme-toggle" (click)="toggleTheme()">
+      {{ theme() === 'light' ? 'Tema oscuro' : 'Tema claro' }}
+    </button>
   }
   <main class="content" [class.auth-content]="isPublicRoute() || !auth.currentUser()">
     <router-outlet />
