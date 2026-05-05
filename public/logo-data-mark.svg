@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg width="980" height="660" viewBox="360 160 980 660" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B2F57"/>
+      <stop offset="55%" stop-color="#0A4D7A"/>
+      <stop offset="100%" stop-color="#06213F"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFB000"/>
+      <stop offset="45%" stop-color="#FF6A00"/>
+      <stop offset="100%" stop-color="#FF3D00"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8DE04B"/>
+      <stop offset="100%" stop-color="#179B58"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#35D3FF"/>
+      <stop offset="100%" stop-color="#0E6BA8"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#031A33" flood-opacity="0.28"/>
+    </filter>
+    <filter id="orangeGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#FF6A00" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <!-- Main mark group: transparent background -->
+  <g filter="url(#softShadow)">
+    <!-- Data pipeline curve -->
+    <path d="M435 469 C590 525 774 517 940 478 C1061 449 1151 438 1260 493" 
+          stroke="url(#cyanGrad)" stroke-width="42" stroke-linecap="round"/>
+    <path d="M442 468 C604 508 764 503 934 466 C1057 439 1150 427 1268 480" 
+          stroke="#E9FAFF" stroke-width="9" stroke-linecap="round" opacity="0.95"/>
+
+    <!-- Binary code on pipeline -->
+    <text x="622" y="489" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#D9F8FF" letter-spacing="4">
+      01101110101010
+    </text>
+
+    <!-- Magnifying glass -->
+    <circle cx="575" cy="345" r="119" fill="#F7FBFF" stroke="url(#blueGrad)" stroke-width="20"/>
+    <circle cx="575" cy="345" r="91" fill="#EAF5FF" stroke="#BFE8FF" stroke-width="6"/>
+    <rect x="395" y="445" width="145" height="34" rx="17" transform="rotate(-37 395 445)" fill="url(#blueGrad)"/>
+    <rect x="408" y="442" width="80" height="8" rx="4" transform="rotate(-37 408 442)" fill="#66B6E8" opacity="0.75"/>
+
+    <!-- Bars inside magnifier -->
+    <rect x="525" y="370" width="38" height="55" rx="6" fill="#FF5A1F"/>
+    <rect x="570" y="338" width="38" height="87" rx="6" fill="url(#orangeGrad)"/>
+    <rect x="615" y="302" width="38" height="123" rx="6" fill="url(#cyanGrad)"/>
+    <rect x="660" y="260" width="38" height="165" rx="6" fill="url(#greenGrad)"/>
+
+    <!-- Up arrow over bars -->
+    <path d="M500 338 C570 315 636 260 699 210" stroke="url(#orangeGrad)" stroke-width="25" stroke-linecap="round"/>
+    <path d="M693 209 L733 183 L718 231 Z" fill="#FF6A00"/>
+
+    <!-- Gear simplified -->
+    <g transform="translate(890 342)">
+      <path d="M0-150 L26-136 L48-148 L76-120 L63-96 L78-70 L106-63 L106-23 L80-13 L74 15 L95 36 L75 74 L44 66 L20 84 L16 116 L-24 116 L-34 85 L-63 75 L-91 92 L-118 63 L-100 35 L-110 6 L-139-8 L-132-48 L-101-54 L-88-82 L-102-110 L-70-136 L-43-119 L-14-127 Z" 
+            fill="#EAF5FF" stroke="url(#blueGrad)" stroke-width="12"/>
+      <circle cx="0" cy="0" r="91" fill="url(#blueGrad)"/>
+      <circle cx="0" cy="0" r="72" fill="#0D3C66" opacity="0.86"/>
+
+      <!-- Chart in gear -->
+      <polyline points="-55,40 -18,0 20,22 58,-45" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="-55" cy="40" r="15" fill="#FFFFFF"/>
+      <circle cx="-18" cy="0" r="15" fill="#FFFFFF"/>
+      <circle cx="20" cy="22" r="15" fill="#FFFFFF"/>
+      <circle cx="58" cy="-45" r="15" fill="#FFFFFF"/>
+      <line x1="-56" y1="68" x2="-56" y2="20" stroke="#5EB9EA" stroke-width="5" opacity="0.7"/>
+      <line x1="-18" y1="68" x2="-18" y2="-14" stroke="#5EB9EA" stroke-width="5" opacity="0.7"/>
+      <line x1="20" y1="68" x2="20" y2="8" stroke="#5EB9EA" stroke-width="5" opacity="0.7"/>
+      <line x1="58" y1="68" x2="58" y2="-52" stroke="#5EB9EA" stroke-width="5" opacity="0.7"/>
+    </g>
+
+    <!-- Pipeline outlet -->
+    <g transform="translate(1118 340)">
+      <rect x="0" y="0" width="118" height="90" rx="20" fill="url(#blueGrad)" stroke="#EAF5FF" stroke-width="8"/>
+      <ellipse cx="118" cy="45" rx="43" ry="64" fill="#EAF5FF" stroke="url(#blueGrad)" stroke-width="10"/>
+      <ellipse cx="119" cy="45" rx="24" ry="43" fill="#082B4F"/>
+    </g>
+
+    <!-- Orange predictive arrow -->
+    <path d="M787 508 C889 525 978 508 1052 461 C1115 421 1187 438 1258 487" 
+          stroke="url(#orangeGrad)" stroke-width="24" stroke-linecap="round" filter="url(#orangeGlow)"/>
+    <path d="M1253 486 L1304 492 L1273 448 Z" fill="#FF6A00" filter="url(#orangeGlow)"/>
+    <polyline points="935,487 974,453 1012,475 1057,423" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Text -->
+  <g text-anchor="middle">
+    <text x="800" y="632" font-family="Arial, Helvetica, sans-serif" font-size="94" font-weight="800" fill="url(#blueGrad)">
+      Data:
+    </text>
+    <text x="800" y="716" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="800" fill="url(#orangeGrad)">
+      Pipeline de AnalÃ­tica
+    </text>
+    <text x="800" y="790" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="800" fill="url(#orangeGrad)">
+      Predictiva de Ventas
+    </text>
+  </g>
+</svg>
+

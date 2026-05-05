@@ -1,0 +1,38 @@
+<header class="page-header">
+  <div>
+    <p class="eyebrow">Resumen empresarial</p>
+    <h1>Dashboard de ventas</h1>
+  </div>
+  <a class="button" routerLink="/sales">Registrar venta</a>
+</header>
+
+@if (summary(); as s) {
+  <section class="kpi-grid">
+    <article class="kpi"><span>Ventas registradas</span><strong>{{ s.totalSales }}</strong></article>
+    <article class="kpi"><span>Ingresos acumulados</span><strong>{{ s.totalRevenue | currency:'COP':'symbol-narrow':'1.0-0' }}</strong></article>
+    <article class="kpi"><span>Producto lider</span><strong>{{ s.topProduct }}</strong></article>
+    <article class="kpi"><span>Tendencia actual</span><strong>{{ lastPrediction()?.trendLevel ?? 'Sin prediccion' }}</strong></article>
+  </section>
+
+  <section class="two-columns">
+    <article class="panel">
+      <h2>Lectura rapida</h2>
+      <p>La categoria mas rentable es <strong>{{ s.mostProfitableCategory }}</strong>, con mejor region en <strong>{{ s.bestRegion }}</strong> y canal fuerte <strong>{{ s.strongestChannel }}</strong>.</p>
+    </article>
+    <article class="panel">
+      <h2>Ultima prediccion</h2>
+      @if (lastPrediction(); as p) {
+        <p>{{ p.predictionMessage }}</p>
+        <strong>{{ p.predictedRevenue | currency:'COP':'symbol-narrow':'1.0-0' }} para {{ p.targetMonth }}</strong>
+      } @else {
+        <p>Aun no hay predicciones generadas.</p>
+      }
+    </article>
+  </section>
+
+  <section class="quick-actions">
+    <a routerLink="/analytics">Ver analitica</a>
+    <a routerLink="/predictions">Generar prediccion</a>
+    <a routerLink="/sales">Gestionar ventas</a>
+  </section>
+}

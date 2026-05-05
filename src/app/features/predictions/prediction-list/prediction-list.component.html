@@ -1,0 +1,45 @@
+<header class="page-header">
+  <div>
+    <p class="eyebrow">Pipeline predictivo</p>
+    <h1>Predicciones de ventas</h1>
+  </div>
+  <button type="button" (click)="generate()" [disabled]="loading()">{{ loading() ? 'Procesando...' : 'Generar proximo mes' }}</button>
+</header>
+
+<section class="panel prediction-card">
+  @if (latest(); as p) {
+    <div>
+      <p class="eyebrow">Mes objetivo {{ p.targetMonth }}</p>
+      <h2>{{ p.predictedRevenue | currency:'COP':'symbol-narrow':'1.0-0' }}</h2>
+      <p>{{ p.predictedUnits }} unidades estimadas · Tendencia {{ p.trendLevel }} · Confianza {{ p.confidenceLevel }}</p>
+    </div>
+    <p>{{ p.predictionMessage }}</p>
+    <strong>{{ p.recommendedAction }}</strong>
+  } @else {
+    <p>No hay predicciones todavia. Genera una para ejecutar el pipeline sobre las ventas historicas.</p>
+  }
+</section>
+
+<section class="panel">
+  <h2>Historial de predicciones</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Fecha</th><th>Mes</th><th>Ingreso estimado</th><th>Unidades</th><th>Tendencia</th><th>Confianza</th><th></th></tr>
+      </thead>
+      <tbody>
+        @for (prediction of predictions(); track prediction.id) {
+          <tr>
+            <td>{{ prediction.predictionDate | date:'yyyy-MM-dd' }}</td>
+            <td>{{ prediction.targetMonth }}</td>
+            <td>{{ prediction.predictedRevenue | currency:'COP':'symbol-narrow':'1.0-0' }}</td>
+            <td>{{ prediction.predictedUnits }}</td>
+            <td>{{ prediction.trendLevel }}</td>
+            <td>{{ prediction.confidenceLevel }}</td>
+            <td><button type="button" class="mini danger" (click)="remove(prediction.id)">Eliminar</button></td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

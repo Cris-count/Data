@@ -1,0 +1,67 @@
+<header class="page-header">
+  <div>
+    <p class="eyebrow">Servicio 2</p>
+    <h1>Analitica de ventas</h1>
+  </div>
+</header>
+
+@if (data(); as d) {
+  <section class="kpi-grid">
+    <article class="kpi"><span>Ingresos totales</span><strong>{{ d.summary.totalRevenue | currency:'COP':'symbol-narrow':'1.0-0' }}</strong></article>
+    <article class="kpi"><span>Unidades vendidas</span><strong>{{ d.summary.totalUnits }}</strong></article>
+    <article class="kpi"><span>Ticket promedio</span><strong>{{ d.summary.averageTicket | currency:'COP':'symbol-narrow':'1.0-0' }}</strong></article>
+    <article class="kpi"><span>Categoria rentable</span><strong>{{ d.summary.mostProfitableCategory }}</strong></article>
+    <article class="kpi"><span>Mejor region</span><strong>{{ d.summary.bestRegion }}</strong></article>
+  </section>
+
+  <section class="panel">
+    <h2>Ventas mensuales</h2>
+    <div class="chart">
+      @for (month of d.monthly; track month.month) {
+        <div class="bar-item">
+          <div class="bar" [style.height]="barHeight(month.revenue)"></div>
+          <span>{{ month.month }}</span>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="two-columns">
+    <article class="panel">
+      <h2>Resumen por categoria</h2>
+      <table>
+        <thead><tr><th>Categoria</th><th>Ingresos</th><th>Unidades</th></tr></thead>
+        <tbody>
+          @for (category of d.categories; track category.category) {
+            <tr><td>{{ category.category }}</td><td>{{ category.revenue | currency:'COP':'symbol-narrow':'1.0-0' }}</td><td>{{ category.units }}</td></tr>
+          }
+        </tbody>
+      </table>
+    </article>
+    <article class="panel">
+      <h2>Resumen por region</h2>
+      <table>
+        <thead><tr><th>Region</th><th>Ingresos</th><th>Unidades</th></tr></thead>
+        <tbody>
+          @for (region of d.regions; track region.region) {
+            <tr><td>{{ region.region }}</td><td>{{ region.revenue | currency:'COP':'symbol-narrow':'1.0-0' }}</td><td>{{ region.units }}</td></tr>
+          }
+        </tbody>
+      </table>
+    </article>
+  </section>
+
+  <section class="panel">
+    <h2>Productos con mayor demanda</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Producto</th><th>Ingresos</th><th>Unidades</th></tr></thead>
+        <tbody>
+          @for (product of d.products; track product.productName) {
+            <tr><td>{{ product.productName }}</td><td>{{ product.revenue | currency:'COP':'symbol-narrow':'1.0-0' }}</td><td>{{ product.units }}</td></tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+}

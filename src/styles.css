@@ -1,3 +1,313 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import 'tailwindcss';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #142033;
+  background: #f5f7fb;
+}
+
+h1, h2, p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin-bottom: 4px;
+}
+
+h2 {
+  font-size: 1.05rem;
+  margin-bottom: 16px;
+}
+
+button,
+.button {
+  border: 0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  background: #1967d2;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:disabled {
+  opacity: .65;
+  cursor: wait;
+}
+
+button.secondary {
+  background: #e8eef6;
+  color: #142033;
+}
+
+.mini {
+  padding: 6px 9px;
+  font-size: .82rem;
+  background: #e8eef6;
+  color: #142033;
+}
+
+.danger {
+  background: #ffe6e2;
+  color: #a61b10;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid #cfd8e3;
+  border-radius: 6px;
+  padding: 8px 10px;
+  background: white;
+  color: #142033;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-weight: 650;
+  color: #30445c;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid #e6ebf2;
+  vertical-align: top;
+}
+
+th {
+  color: #586a80;
+  font-size: .8rem;
+  text-transform: uppercase;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  color: #1967d2;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .75rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.muted {
+  color: #60738a;
+}
+
+.panel,
+.kpi {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(16, 32, 51, .06);
+}
+
+.panel {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.kpi {
+  padding: 18px;
+  min-height: 110px;
+}
+
+.kpi span {
+  display: block;
+  color: #60738a;
+  margin-bottom: 10px;
+}
+
+.kpi strong {
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.two-columns,
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.work-grid {
+  grid-template-columns: 360px 1fr;
+  align-items: start;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+.compact {
+  margin-bottom: 0;
+}
+
+.row,
+.button-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.actions {
+  white-space: nowrap;
+}
+
+.actions button + button {
+  margin-left: 6px;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    linear-gradient(rgba(16, 32, 51, .78), rgba(16, 32, 51, .78)),
+    url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80') center/cover;
+}
+
+.auth-panel {
+  width: min(440px, 100%);
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, .22);
+}
+
+.auth-logo {
+  width: min(320px, 100%);
+  height: 150px;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+  margin: -18px auto 10px;
+  border-radius: 0;
+}
+
+.error {
+  color: #a61b10;
+  background: #ffe6e2;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.header-stat {
+  color: #30445c;
+  font-weight: 700;
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.quick-actions a {
+  background: #ffffff;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  padding: 18px;
+  text-decoration: none;
+  color: #142033;
+  font-weight: 750;
+}
+
+.chart {
+  min-height: 190px;
+  display: flex;
+  align-items: end;
+  gap: 18px;
+  overflow-x: auto;
+  padding-top: 20px;
+}
+
+.bar-item {
+  min-width: 76px;
+  text-align: center;
+  color: #60738a;
+  font-size: .82rem;
+}
+
+.bar {
+  width: 42px;
+  margin: 0 auto 10px;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(180deg, #28b17e, #1967d2);
+}
+
+.prediction-card {
+  display: grid;
+  gap: 12px;
+  border-left: 6px solid #28b17e;
+}
+
+@media (max-width: 1100px) {
+  .kpi-grid,
+  .two-columns,
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .page-header,
+  .row,
+  .button-row,
+  .quick-actions,
+  .filters {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
