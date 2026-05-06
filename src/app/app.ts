@@ -10,6 +10,7 @@ import { AuthService } from './core/services/auth.service';
 })
 export class App {
   theme = signal<'light' | 'dark'>(this.readTheme());
+  menuOpen = signal(false);
 
   constructor(public auth: AuthService, private router: Router) {}
 
@@ -23,6 +24,14 @@ export class App {
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('data_theme', next);
     }
+  }
+
+  toggleMenu(): void {
+    this.menuOpen.update((open) => !open);
+  }
+
+  closeMenu(): void {
+    this.menuOpen.set(false);
   }
 
   private readTheme(): 'light' | 'dark' {

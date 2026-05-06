@@ -1,6 +1,18 @@
 <div class="shell" [class.public-shell]="isPublicRoute() || !auth.currentUser()" [class.theme-light]="theme() === 'light'" [class.theme-dark]="theme() === 'dark'">
   @if (auth.currentUser() && !isPublicRoute()) {
-    <aside class="sidebar">
+    <header class="mobile-topbar">
+      <div class="mobile-brand">
+        <img class="mobile-logo" src="/logo-data.png" alt="Data Sales Analytics">
+        <span>Data</span>
+      </div>
+      <button type="button" class="menu-button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()">
+        {{ menuOpen() ? 'Cerrar' : 'Menu' }}
+      </button>
+    </header>
+    @if (menuOpen()) {
+      <button type="button" class="menu-backdrop" aria-label="Cerrar menu" (click)="closeMenu()"></button>
+    }
+    <aside class="sidebar" [class.open]="menuOpen()">
       <div class="brand">
         <img class="brand-logo" src="/logo-data.png" alt="Data Sales Analytics">
         <div>
@@ -9,10 +21,10 @@
         </div>
       </div>
       <nav>
-        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-        <a routerLink="/sales" routerLinkActive="active">Ventas</a>
-        <a routerLink="/analytics" routerLinkActive="active">Analitica</a>
-        <a routerLink="/predictions" routerLinkActive="active">Predicciones</a>
+        <a routerLink="/dashboard" routerLinkActive="active" (click)="closeMenu()">Dashboard</a>
+        <a routerLink="/sales" routerLinkActive="active" (click)="closeMenu()">Ventas</a>
+        <a routerLink="/analytics" routerLinkActive="active" (click)="closeMenu()">Analitica</a>
+        <a routerLink="/predictions" routerLinkActive="active" (click)="closeMenu()">Predicciones</a>
       </nav>
       <div class="sidebar-actions">
         <button type="button" class="theme-toggle" (click)="toggleTheme()">
